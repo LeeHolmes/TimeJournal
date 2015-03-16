@@ -1,0 +1,32 @@
+﻿<Window x:Class="TimeJournal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Time Journal" WindowStyle="SingleBorderWindow" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight"
+        Icon="/TimeJournal;component/Images/Logo.png" WindowStartupLocation="CenterScreen" WindowState="Normal">
+
+    <Window.Resources>
+        <Style  TargetType="{x:Type ListBoxItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#EEEEEE"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#DEDEDE"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Height="480" Width="680">
+        <TextBlock TextWrapping="NoWrap" TextAlignment="Center"
+                   Width="608" Text="Time Journal" FontSize="60" Foreground="White" Background="#111111" Opacity="0.8"
+                   Margin="0,30,0,0" />
+        <ScrollViewer Height="250" Width="650" Margin="0,50,0,0" Opacity="0.95">
+            <ListBox Name="SelectedItems" ItemsSource="{Binding}" AlternationCount="2" />
+        </ScrollViewer>
+        <TextBox Name="Activity" Margin="0,10,0,0" Width="650" Background="WhiteSmoke" />
+    </StackPanel>
+    <Window.Background>
+        <ImageBrush ImageSource="/TimeJournal;component/Images/Background.png" />
+    </Window.Background>
+</Window>
